@@ -198,7 +198,7 @@ function enable() {
     if(KeyboardIsSetup) {
         Main.keyboard._setupKeyboard();
     }
-    Main.layoutManager.addChrome(   Main.layoutManager.keyboardBox, { affectsStruts: true, trackFullscreen: false });
+    Main.layoutManager.addChrome(Main.layoutManager.keyboardBox);
 }
 
 function disable() {
@@ -226,5 +226,5 @@ function disable() {
     if(KeyboardIsSetup) {
         Main.keyboard._setupKeyboard();
     }
-    Main.layoutManager.addChrome(   Main.layoutManager.keyboardBox);
+    Main.layoutManager.addChrome(Main.layoutManager.keyboardBox);
 }
