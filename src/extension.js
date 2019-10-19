@@ -11,7 +11,6 @@ const Tweener = imports.ui.tweener;
 const Overview = imports.ui.overview;
 const Layout = imports.ui.layout;
 
-var defaultKeyboardDelay;
 var Backup_DefaultKeysForRow;
 var Backup_contructor;
 var Backup_keyvalPress;
@@ -19,7 +18,6 @@ var Backup_keyvalRelease;
 
 
 function init() {
-    defaultKeyboardDelay = Layout.KEYBOARD_ANIMATION_TIME;
     Backup_DefaultKeysForRow = Keyboard.Keyboard.prototype['_getDefaultKeysForRow'];
     Backup_contructor = Keyboard.KeyboardController.prototype['constructor'];
     Backup_keyvalPress = Keyboard.KeyboardController.prototype['keyvalPress'];
@@ -194,7 +192,6 @@ function enable() {
 
     }
 
-    Layout.KEYBOARD_ANIMATION_TIME = 0;
     if(KeyboardIsSetup) {
         Main.keyboard._setupKeyboard();
     }
@@ -222,7 +219,6 @@ function disable() {
     Keyboard.KeyboardController.prototype['constructor'] = Backup_contructor;
     Keyboard.KeyboardController.prototype['keyvalPress'] = Backup_keyvalPress;
     Keyboard.KeyboardController.prototype['keyvalRelease'] = Backup_keyvalRelease;
-    Layout.KEYBOARD_ANIMATION_TIME = defaultKeyboardDelay;
     if(KeyboardIsSetup) {
         Main.keyboard._setupKeyboard();
     }
